@@ -11,7 +11,7 @@ class FileValidatorCollectionFactory implements FileValidatorFactoryInterface
 
         foreach ($config as $singleRuleConfig) {
             if(!isset($singleRuleConfig['validatorId'])) {
-                throw \RuntimeException('Validator id is not set.');
+                throw new \RuntimeException('Validator id is not set.');
             }
 
             $factory = FileValidatorSingleRuleFactoryAbstract::createFactory($singleRuleConfig['validatorId']);

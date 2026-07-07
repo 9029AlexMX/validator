@@ -22,7 +22,7 @@ abstract class FileValidatorSingleRuleFactoryAbstract implements FileValidatorFa
     public static function createFactory(int $validatorId): FileValidatorSingleRuleFactoryAbstract
     {
         if (!isset(self::ID_VALIDATOR_TO_FACTORY_MAP[$validatorId])) {
-            throw \RuntimeException('Please specify factory for validator id `'.$validatorId.'`.');
+            throw new \RuntimeException('Please specify factory for validator id `'.$validatorId.'`.');
         }
         return new (self::ID_VALIDATOR_TO_FACTORY_MAP[$validatorId])();
     }

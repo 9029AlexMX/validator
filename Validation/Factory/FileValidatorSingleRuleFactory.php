@@ -23,17 +23,17 @@ class FileValidatorSingleRuleFactory extends FileValidatorSingleRuleFactoryAbstr
     public function createFromConfig(array $config): FileValidatorSingleRuleAbstract
     {
         if(!isset($config['validatorId'])) {
-            throw \RuntimeException('Validator id is not set.');
+            throw new \RuntimeException('Validator id is not set.');
         }
         // We can set it to empty array if key is not set, but I think it is correct to require it to be set,
         // so developer will not forget to set it.
         if(!isset($config['config'])) {
-            throw \RuntimeException('Validator config is not set.');
+            throw new \RuntimeException('Validator config is not set.');
         }
 
         $validatorId = $config['validatorId'];
         if (!isset(self::DB_VALUE_TO_CLASS_MAP[$validatorId])) {
-            throw \RuntimeException('Unknown validator id `'.$validatorId.'`.');
+            throw new \RuntimeException('Unknown validator id `'.$validatorId.'`.');
         }
         return new (self::DB_VALUE_TO_CLASS_MAP[$validatorId])($config['config']);
     }
