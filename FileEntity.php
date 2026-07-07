@@ -10,8 +10,8 @@ class FileEntity
 
     public string $tenantId;
 
-    public string $content;
+    public string $content = '';
     
-    public array $metadata;
+    public array $metadata = [];
 }
 ?>
