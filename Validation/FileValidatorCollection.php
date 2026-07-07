@@ -20,6 +20,7 @@ class FileValidatorCollection implements FileValidatorInterface
         $result = new FileValidatorResult();
 
         foreach ($this->rules as $validator) {
+            // Decided to fill parent result errors right away instead of merge them later.
             $validator->setParentResult($result);
             $validator->validate($file);
         }

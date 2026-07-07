@@ -4,6 +4,7 @@ namespace App\Validation\Factory;
 use App\Validation\FileMaximumSizeValidator;
 use App\Validation\FileMetadataFieldValidator;
 use App\Validation\FileNotEmptyValidator;
+use App\Validation\FileProhibitedWordsValidator;
 use App\Validation\FileValidatorSingleRuleAbstract;
 
 class FileValidatorSingleRuleFactory extends FileValidatorSingleRuleFactoryAbstract
@@ -18,6 +19,7 @@ class FileValidatorSingleRuleFactory extends FileValidatorSingleRuleFactoryAbstr
         1 => FileNotEmptyValidator::class,
         2 => FileMaximumSizeValidator::class,
         3 => FileMetadataFieldValidator::class,
+        4 => FileProhibitedWordsValidator::class,
     ];
     
     public function createFromConfig(array $config): FileValidatorSingleRuleAbstract

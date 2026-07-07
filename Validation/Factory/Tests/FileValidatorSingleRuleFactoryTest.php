@@ -4,6 +4,7 @@ namespace App\Validation\Tests\Factory;
 use App\Validation\FileMaximumSizeValidator;
 use App\Validation\FileMetadataFieldValidator;
 use App\Validation\FileNotEmptyValidator;
+use App\Validation\FileProhibitedWordsValidator;
 use App\Validation\Factory\FileValidatorSingleRuleFactory;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\Before; 
@@ -54,6 +55,12 @@ class FileValidatorSingleRuleFactoryTest extends TestCase
     {
         $validator = $this->sut->createFromConfig(['validatorId' => 1, 'config' => []]);
         $this->assertInstanceOf(FileNotEmptyValidator::class, $validator);
+    }
+
+    public function testCreateFromConfigFileProhibitedWordsValidator(): void
+    {
+        $validator = $this->sut->createFromConfig(['validatorId' => 4, 'config' => ['words' => ['a']]]);
+        $this->assertInstanceOf(FileProhibitedWordsValidator::class, $validator);
     }
 }
 

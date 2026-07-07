@@ -15,6 +15,7 @@ abstract class FileValidatorSingleRuleFactoryAbstract implements FileValidatorFa
         1 => FileValidatorSingleRuleFactory::class,
         2 => FileValidatorSingleRuleFactory::class,
         3 => FileValidatorSingleRuleFactory::class,
+        4 => FileValidatorSingleRuleFactory::class,
     ];
 
     abstract public function createFromConfig(array $config): FileValidatorSingleRuleAbstract;

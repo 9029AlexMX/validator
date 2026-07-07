@@ -31,6 +31,12 @@ class FileValidatorSingleRuleFactoryAbstractTest extends TestCase
         $factory = FileValidatorSingleRuleFactoryAbstract::createFactory(1);
         $this->assertInstanceOf(FileValidatorSingleRuleFactory::class, $factory);
     }
+
+    public function testCreateFactoryFileProhibitedWordsValidator(): void
+    {
+        $factory = FileValidatorSingleRuleFactoryAbstract::createFactory(4);
+        $this->assertInstanceOf(FileValidatorSingleRuleFactory::class, $factory);
+    }
 }
 
 ?>
