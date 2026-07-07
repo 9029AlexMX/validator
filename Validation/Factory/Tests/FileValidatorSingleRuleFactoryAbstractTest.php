@@ -4,7 +4,6 @@ namespace App\Validation\Tests\Factory;
 use App\Validation\Factory\FileValidatorSingleRuleFactory;
 use App\Validation\Factory\FileValidatorSingleRuleFactoryAbstract;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\Before; 
 
 class FileValidatorSingleRuleFactoryAbstractTest extends TestCase
 {
