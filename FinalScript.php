@@ -18,6 +18,7 @@ class FinalScript
         // Assume we retrieved validator configuration for tenant from DB.
         // Assume validation configuration is stored as (validatorId, config). Config is compressed.
         // But decompression is done anywhere else. Just for simplicity.
+        // Tenant 1 rules.
         $configDb = [
             ['validatorId' => 1, 'config' => []],
             ['validatorId' => 2, 'config' => ['bytes' => '1024']],
@@ -29,6 +30,7 @@ class FinalScript
         $file = new FileEntity();
         $file->content = '... previous text. BADWoRD. Next text...';
         $file->metadata['file_size'] = '2048';
+        // Tenant 2 rules.
         $configDb = [
             ['validatorId' => 1, 'config' => []],
             ['validatorId' => 2, 'config' => ['bytes' => '1024']],
@@ -41,6 +43,7 @@ class FinalScript
         $file->content = '... previous text. Ryde BDWoRD. Next text...';
         $file->metadata['file_size'] = '1024';
         $file->metadata['tenant_id'] = '123';
+        // Tenant 3 rules.
         $configDb = [
             ['validatorId' => 2, 'config' => ['bytes' => '1024']],
             ['validatorId' => 3, 'config' => ['field' => 'tenant_id']],
