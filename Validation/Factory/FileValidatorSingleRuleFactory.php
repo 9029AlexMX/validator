@@ -16,7 +16,7 @@ class FileValidatorSingleRuleFactory extends FileValidatorSingleRuleFactoryAbstr
      * with each possible validation. In such way we reduce amount of data stored in
      * database, because to store integer we need less place than for string.
      */
-    private const DB_VALUE_TO_CLASS_MAP = [
+    private const ID_VALIDATOR_TO_CLASS_MAP = [
         1 => FileNotEmptyValidator::class,
         2 => FileMaximumSizeValidator::class,
         3 => FileMetadataFieldValidator::class,
@@ -35,9 +35,9 @@ class FileValidatorSingleRuleFactory extends FileValidatorSingleRuleFactoryAbstr
         }
 
         $validatorId = $config['validatorId'];
-        if (!isset(self::DB_VALUE_TO_CLASS_MAP[$validatorId])) {
+        if (!isset(self::ID_VALIDATOR_TO_CLASS_MAP[$validatorId])) {
             throw new \RuntimeException('Unknown validator id `' . $validatorId . '`.');
         }
-        return new (self::DB_VALUE_TO_CLASS_MAP[$validatorId])($config['config']);
+        return new (self::ID_VALIDATOR_TO_CLASS_MAP[$validatorId])($config['config']);
     }
 }

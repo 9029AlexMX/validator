@@ -1,0 +1,8 @@
+I did not add methods/properties documentation to not waste time. Not sure if this is needed. If needed - I can add.
+Also not sure how should I demonstrate "Determining which validation rules apply for a given tenant ID". Currently each tenant
+validation rules configuration are hardcoded in FinalScript.php. I think this is ok, but I can wrap this in some class if needed.
+I did not add setters/getters where they are not required. To speed up process I used arrays for example for validator configuration or to store errors. Of cource I can use objects instead, but this is just more time and more code to review.
+
+So main concept is to have FileValidatorInterface, that rest validators should implement. Composite is used as a pattern. We can run each single validator of validators collection via FileValidatorCollection::validate() method run. Abstract class is provided for single rule validator. So basically to implement one more single rule validator we need extend FileValidatorSingleRuleAbstract. Or we can have new class that implements FileValidatorInterface, if something more complex is needed.
+
+For validators creation from configuration array I added FileValidatorFactoryInterface::createFromConfig() method. It is possible to implement separate createFromConfig() method for each validator, but for now this looks as something that is not needed currently. But of course it is possible that such separate createFromConfig() method will be required. When adding new validator it should be added to FileValidatorSingleRuleFactory::ID_VALIDATOR_TO_CLASS_MAP and FileValidatorSingleRuleFactoryAbstract::ID_VALIDATOR_TO_FACTORY_MAP maps.
