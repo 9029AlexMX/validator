@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\Validation\Factory\FileValidatorSingleRuleFactory;
@@ -38,5 +39,3 @@ class FileValidatorSingleRuleFactoryAbstractTest extends TestCase
         $this->assertInstanceOf(FileValidatorSingleRuleFactory::class, $factory);
     }
 }
-
-?>

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation;
 
 use App\FileEntity;
@@ -18,5 +19,3 @@ class FileNotEmptyValidator extends FileValidatorSingleRuleAbstract
         return $result;
     }
 }
-
-?>

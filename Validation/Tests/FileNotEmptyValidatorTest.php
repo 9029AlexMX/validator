@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\FileEntity;
@@ -16,7 +17,7 @@ class FileNotEmptyValidatorTest extends TestCase
 
         $this->assertFalse($result->isValid);
         $this->assertSame([
-            'File is empty.'
+            'File is empty.',
         ], $result->getErrors());
     }
 
@@ -40,5 +41,3 @@ class FileNotEmptyValidatorTest extends TestCase
         $this->assertSame([], $parentResult->getErrors());
     }
 }
-
-?>

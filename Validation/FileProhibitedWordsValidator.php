@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation;
 
 use App\FileEntity;
@@ -9,13 +10,13 @@ class FileProhibitedWordsValidator extends FileValidatorSingleRuleAbstract
 
     public function __construct(array $config)
     {
-        if(empty($config['words'])) {
+        if (empty($config['words'])) {
             throw new \RuntimeException('Prohibited words should be set.');
         }
-        if(!is_array($config['words'])) {
+        if (!is_array($config['words'])) {
             throw new \RuntimeException('Prohibited words should be words list.');
         }
-        foreach($config['words'] as $word) {
+        foreach ($config['words'] as $word) {
             if (!is_string($word)) {
                 throw new \RuntimeException('Prohibited words should be words list.');
             }
@@ -28,7 +29,7 @@ class FileProhibitedWordsValidator extends FileValidatorSingleRuleAbstract
         $result = new FileValidatorResult();
 
         $words = implode('|', $this->words);
-        if (preg_match('/'.$words.'/i', $file->content)) {
+        if (preg_match('/' . $words . '/i', $file->content)) {
             $error = 'There are prohibited words in file.';
             $result->addError($error);
             $this->addParentResultError($error);
@@ -37,5 +38,3 @@ class FileProhibitedWordsValidator extends FileValidatorSingleRuleAbstract
         return $result;
     }
 }
-
-?>

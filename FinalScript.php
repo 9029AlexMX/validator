@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 require_once('autoload.php');
@@ -35,7 +36,7 @@ class FinalScript
             ['validatorId' => 4, 'config' => ['words' => ['badword','rude']]],
         ];
         $this->runScenario($file, $configDb);
-        
+
         $file = new FileEntity();
         $file->content = '... previous text. Ryde BDWoRD. Next text...';
         $file->metadata['file_size'] = '1024';
@@ -50,17 +51,17 @@ class FinalScript
 
     private function runScenario(FileEntity $file, array $configDb): void
     {
-        $validator = (new FileValidatorCollectionFactory)->createFromConfig($configDb);
+        $validator = (new FileValidatorCollectionFactory())->createFromConfig($configDb);
 
         $result = $validator->validate($file);
-        
-        echo '------------ SCENARIO '.$this->scenario.' ------------'.PHP_EOL;
-        echo 'File is '.($result->isValid ? '' : 'not ').'valid.'.PHP_EOL;
+
+        echo '------------ SCENARIO ' . $this->scenario . ' ------------' . PHP_EOL;
+        echo 'File is ' . ($result->isValid ? '' : 'not ') . 'valid.' . PHP_EOL;
 
         if (!$result->isValid) {
-            echo 'Next errors are found:'.PHP_EOL;
+            echo 'Next errors are found:' . PHP_EOL;
             foreach ($result->getErrors() as $error) {
-                echo $error.PHP_EOL;
+                echo $error . PHP_EOL;
             }
         }
         echo PHP_EOL;
@@ -69,6 +70,4 @@ class FinalScript
     }
 }
 
-(new FinalScript)->run();
-
-?>
+(new FinalScript())->run();

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation;
 
 class FileValidatorResult
@@ -18,5 +19,3 @@ class FileValidatorResult
         return $this->errorMessages;
     }
 }
-
-?>

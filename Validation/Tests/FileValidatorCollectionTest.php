@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\FileEntity;
@@ -25,7 +26,7 @@ class FileValidatorCollectionTest extends TestCase
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('Metadata field to validate is not known.');
 
-        $file = new FileEntity();    
+        $file = new FileEntity();
         $sut = new FileValidatorCollection([
             new FileNotEmptyValidator(),
             new FileMetadataFieldValidator([]),
@@ -36,7 +37,7 @@ class FileValidatorCollectionTest extends TestCase
     public function testValidateErrors(): void
     {
         $file = new FileEntity();
-        
+
         $sut = new FileValidatorCollection([
             new FileNotEmptyValidator(),
             new FileMetadataFieldValidator(['field' => 'author']),
@@ -55,7 +56,7 @@ class FileValidatorCollectionTest extends TestCase
         $file = new FileEntity();
         $file->content = 'somecontent';
         $file->metadata['author'] = 'Alexey';
-        
+
         $sut = new FileValidatorCollection([
             new FileNotEmptyValidator(),
             new FileMetadataFieldValidator(['field' => 'author']),
@@ -66,5 +67,3 @@ class FileValidatorCollectionTest extends TestCase
         $this->assertSame([], $result->getErrors());
     }
 }
-
-?>

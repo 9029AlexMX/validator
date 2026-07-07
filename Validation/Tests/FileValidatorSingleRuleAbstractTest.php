@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\FileEntity;
@@ -37,4 +38,3 @@ class FileValidatorSingleRuleAbstractTest extends TestCase
         $this->assertSame(['Error 1', 'Error 2'], $parentResult->getErrors());
     }
 }
-?>

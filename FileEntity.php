@@ -1,4 +1,5 @@
 <?php
+
 namespace App;
 
 class FileEntity
@@ -11,7 +12,6 @@ class FileEntity
     public string $tenantId;
 
     public string $content = '';
-    
+
     public array $metadata = [];
 }
-?>

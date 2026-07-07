@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Factory;
 
 use App\Validation\FileValidatorCollection;
@@ -10,7 +11,7 @@ class FileValidatorCollectionFactory implements FileValidatorFactoryInterface
         $validatorCollection = new FileValidatorCollection();
 
         foreach ($config as $singleRuleConfig) {
-            if(!isset($singleRuleConfig['validatorId'])) {
+            if (!isset($singleRuleConfig['validatorId'])) {
                 throw new \RuntimeException('Validator id is not set.');
             }
 
@@ -22,5 +23,3 @@ class FileValidatorCollectionFactory implements FileValidatorFactoryInterface
         return $validatorCollection;
     }
 }
-
-?>

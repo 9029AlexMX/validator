@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\FileEntity;
@@ -23,7 +24,7 @@ class FileMetadataFieldValidatorTest extends TestCase
 
         $this->assertFalse($result->isValid);
         $this->assertSame([
-            'Metadata field `author` is not set.'
+            'Metadata field `author` is not set.',
         ], $result->getErrors());
     }
 
@@ -42,12 +43,12 @@ class FileMetadataFieldValidatorTest extends TestCase
 
         $this->assertFalse($result->isValid);
         $this->assertSame([
-            'Metadata field `author` has empty value.'
+            'Metadata field `author` has empty value.',
         ], $result->getErrors());
 
         $this->assertFalse($parentResult->isValid);
         $this->assertSame([
-            'Metadata field `author` has empty value.'
+            'Metadata field `author` has empty value.',
         ], $parentResult->getErrors());
     }
 
@@ -71,5 +72,3 @@ class FileMetadataFieldValidatorTest extends TestCase
         $this->assertSame([], $parentResult->getErrors());
     }
 }
-
-?>

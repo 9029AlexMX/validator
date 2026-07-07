@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\FileEntity;
@@ -23,7 +24,7 @@ class FileMaximumSizeValidatorTest extends TestCase
 
         $this->assertFalse($result->isValid);
         $this->assertSame([
-            'File has no file size specified in metadata.'
+            'File has no file size specified in metadata.',
         ], $result->getErrors());
     }
 
@@ -42,12 +43,12 @@ class FileMaximumSizeValidatorTest extends TestCase
 
         $this->assertFalse($result->isValid);
         $this->assertSame([
-            'File size exceeds 256 bytes.'
+            'File size exceeds 256 bytes.',
         ], $result->getErrors());
 
         $this->assertFalse($parentResult->isValid);
         $this->assertSame([
-            'File size exceeds 256 bytes.'
+            'File size exceeds 256 bytes.',
         ], $parentResult->getErrors());
     }
 
@@ -71,5 +72,3 @@ class FileMaximumSizeValidatorTest extends TestCase
         $this->assertSame([], $parentResult->getErrors());
     }
 }
-
-?>

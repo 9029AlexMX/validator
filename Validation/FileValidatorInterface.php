@@ -8,5 +8,3 @@ interface FileValidatorInterface
 {
     public function validate(FileEntity $file): FileValidatorResult;
 }
-
-?>

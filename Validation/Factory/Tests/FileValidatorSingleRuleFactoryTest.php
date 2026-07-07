@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\Validation\FileMaximumSizeValidator;
@@ -7,7 +8,7 @@ use App\Validation\FileNotEmptyValidator;
 use App\Validation\FileProhibitedWordsValidator;
 use App\Validation\Factory\FileValidatorSingleRuleFactory;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\Before; 
+use PHPUnit\Framework\Attributes\Before;
 
 class FileValidatorSingleRuleFactoryTest extends TestCase
 {
@@ -63,5 +64,3 @@ class FileValidatorSingleRuleFactoryTest extends TestCase
         $this->assertInstanceOf(FileProhibitedWordsValidator::class, $validator);
     }
 }
-
-?>

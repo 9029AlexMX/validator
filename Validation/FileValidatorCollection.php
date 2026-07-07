@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation;
 
 use App\FileEntity;
@@ -10,7 +11,7 @@ class FileValidatorCollection implements FileValidatorInterface
 {
     public \Traversable $rules;
 
-    public function __construct(array $rules=[])
+    public function __construct(array $rules = [])
     {
         $this->rules = new \ArrayIterator($rules);
     }
@@ -28,5 +29,3 @@ class FileValidatorCollection implements FileValidatorInterface
         return $result;
     }
 }
-
-?>

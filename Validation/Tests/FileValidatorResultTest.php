@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\Validation\FileValidatorResult;
@@ -13,7 +14,7 @@ class FileValidatorResultTest extends TestCase
 
         $sut->addError('Error 1');
         $this->assertSame([
-            'Error 1'
+            'Error 1',
         ], $sut->getErrors());
 
         $sut->addError('Error 2');
@@ -23,4 +24,3 @@ class FileValidatorResultTest extends TestCase
         ], $sut->getErrors());
     }
 }
-?>

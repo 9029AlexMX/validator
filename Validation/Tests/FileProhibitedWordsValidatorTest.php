@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\FileEntity;
@@ -51,12 +52,12 @@ class FileProhibitedWordsValidatorTest extends TestCase
 
         $this->assertFalse($result->isValid);
         $this->assertSame([
-            'There are prohibited words in file.'
+            'There are prohibited words in file.',
         ], $result->getErrors());
 
         $this->assertFalse($parentResult->isValid);
         $this->assertSame([
-            'There are prohibited words in file.'
+            'There are prohibited words in file.',
         ], $parentResult->getErrors());
     }
 
@@ -80,5 +81,3 @@ class FileProhibitedWordsValidatorTest extends TestCase
         $this->assertSame([], $parentResult->getErrors());
     }
 }
-
-?>

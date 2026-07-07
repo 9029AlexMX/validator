@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation\Tests\Factory;
 
 use App\Validation\FileMaximumSizeValidator;
@@ -6,7 +7,7 @@ use App\Validation\FileMetadataFieldValidator;
 use App\Validation\FileNotEmptyValidator;
 use App\Validation\Factory\FileValidatorCollectionFactory;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\Framework\Attributes\Before; 
+use PHPUnit\Framework\Attributes\Before;
 
 class FileValidatorCollectionFactoryTest extends TestCase
 {
@@ -44,5 +45,3 @@ class FileValidatorCollectionFactoryTest extends TestCase
         $this->assertInstanceOf(FileMetadataFieldValidator::class, $validatorCollection->rules[2]);
     }
 }
-
-?>

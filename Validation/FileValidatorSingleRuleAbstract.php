@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Validation;
 
 use App\FileEntity;
@@ -15,16 +16,14 @@ abstract class FileValidatorSingleRuleAbstract implements FileValidatorInterface
      */
     private ?FileValidatorResult $parentResult = null;
 
-    public function __construct(array $config=[])
-    {
-    }
+    public function __construct(array $config = []) {}
 
     /**
      * Decided to fill parent result errors right away instead of merge them later.
      * There are several ways of solving this problem. Other way can be add $parentResult as second validate() method
      * argument. But I do not like such way since theoretically validation can be run without $parentResult argument being
      * needed. For me setting it optionally with setParentResult() method is most flexible way.
-     */ 
+     */
     public function addParentResultError(string $errorMessage): void
     {
         if (!$this->parentResult) {
@@ -42,5 +41,3 @@ abstract class FileValidatorSingleRuleAbstract implements FileValidatorInterface
 
     abstract public function validate(FileEntity $file): FileValidatorResult;
 }
-
-?>
